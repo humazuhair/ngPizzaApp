@@ -1,13 +1,10 @@
-<h1 class='center'>{{ pizzaToDisplay?.name }}</h1>
+<h1 class='center'>Pizza {{ pizzaToDisplay?.name }}</h1>
 <div class='container' style="display: flex">
 
   <div class="card-image"><img [src]="pizzaToDisplay?.picture"></div>
   <div class="card-stacked">
-    <p>
-      <small>{{ pizzaToDisplay?.created | date:'dd/MM/YYYY HH:mm' | uppercase}}</small>
-    </p>
-    <span *ngFor='let ingredients of pizzaToDisplay?.compositions' class="{{ingredients | pizzaIngredientColor}}">
-                <small> {{ingredients}} </small>
-            </span>
+    <p> Crée le : {{ pizzaToDisplay?.created | date:'dd/MM/YYYY HH:mm' | uppercase}}</p>
+    <p> Nutri score : {{ pizzaToDisplay?.nutriScore}} </p> Ingredients :
+    <span *ngFor='let ingredients of pizzaToDisplay?.compositions' class="{{ingredients | pizzaIngredientColor}}"> {{ingredients}}</span>
   </div>
 </div>
