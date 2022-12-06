@@ -1,0 +1,20 @@
+<h1 class='center'>Dommino's Pizzas</h1>
+<div class='container'>
+  <div class="row">
+    <div *ngFor='let singlePizza of PIZZAS' class="col s6 m4">
+      <div class="card horizontal" (click)="selectPizza(singlePizza)" appPizzaBorderCard >
+        <div class="card-image"><img [src]="singlePizza.picture"></div>
+        <div class="card-stacked">
+          <div class="card-content"><p>{{ singlePizza.name }}</p>
+            <p>
+              <small>{{ singlePizza.created | date:'dd/MM/YYYY HH:mm' | uppercase}}</small>
+            </p>
+            <span *ngFor = 'let ingredients of singlePizza.compositions' class="{{ingredients | pizzaIngredientColor}}">
+                <small> {{ingredients}} </small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

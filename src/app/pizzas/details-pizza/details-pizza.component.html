@@ -1,0 +1,13 @@
+<h1 class='center'>{{ pizzaToDisplay?.name }}</h1>
+<div class='container' style="display: flex">
+
+  <div class="card-image"><img [src]="pizzaToDisplay?.picture"></div>
+  <div class="card-stacked">
+    <p>
+      <small>{{ pizzaToDisplay?.created | date:'dd/MM/YYYY HH:mm' | uppercase}}</small>
+    </p>
+    <span *ngFor='let ingredients of pizzaToDisplay?.compositions' class="{{ingredients | pizzaIngredientColor}}">
+                <small> {{ingredients}} </small>
+            </span>
+  </div>
+</div>
