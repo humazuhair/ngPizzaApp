@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Pizza} from "../../Pizza";
-import {LIST_PIZZAS} from "../../shared/list.pizza";
 import {Router} from "@angular/router";
+import {PizzasService} from "../pizzas.service";
 
 @Component({
   selector: 'app-listpizza',
@@ -10,14 +10,14 @@ import {Router} from "@angular/router";
 })
 export class ListpizzaComponent implements OnInit {
 
-  constructor(private router : Router) {
+  constructor(private router : Router, private pizzasService: PizzasService) {
 
   }
 
   PIZZAS: Pizza[] | undefined;
 
   ngOnInit(): void {
-    this.PIZZAS = LIST_PIZZAS;
+    this.PIZZAS = this.pizzasService.getListPizzas();
   }
   selectPizza(selectedPizza: Pizza): void {
     const link = ['pizza', selectedPizza.id]
